@@ -2,7 +2,7 @@ package edu.csc413.calculator.operators;
 
 import edu.csc413.calculator.evaluator.Operand;
 
-public class DivisionOperator extends Operator {
+public class MultiplyOperator extends Operator {
     @Override
     public int priority() {
         return 2;
@@ -10,6 +10,7 @@ public class DivisionOperator extends Operator {
 
     @Override
     public Operand execute(Operand operandOne, Operand operandTwo) {
-        return null;
+
+        return new Operand(operandOne.getValue() * operandTwo.getValue());
     }
 }

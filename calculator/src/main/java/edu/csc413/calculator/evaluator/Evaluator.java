@@ -13,11 +13,16 @@ public class Evaluator {
   private Stack<Operand> operandStack;
   private Stack<Operator> operatorStack;
   private StringTokenizer expressionTokenizer;
-  private final String delimiters = " +/*-^";
+  private final String delimiters = " +/*-^()";
 
   public Evaluator() {
     operandStack = new Stack<>();
     operatorStack = new Stack<>();
+  }
+
+  private void processer(Operator oper){
+    Operand operrandIMP = operandStack.pop();
+    operandStack.push(oper.priority() < 4 ? oper.execute(operandStack.pop(), operrandIMP): oper.execute(operrandIMP, null));
   }
 
   public int evaluateExpression(String expression ) throws InvalidTokenException {
@@ -50,8 +55,19 @@ public class Evaluator {
           // The Operator class should contain an instance of a HashMap,
           // and values will be instances of the Operators.  See Operator class
           // skeleton for an example.
-          Operator newOperator = new Operator();
-        
+          Operator newOperator = Operator.getOperator(expressionToken);
+
+          if(expressionToken.equals(")")){
+            operatorStack.push(newOperator);
+            continue;
+          } else if (expressionToken.equals("(")) {
+            while (operatorStack.peek().priority() != 0){
+
+            }
+            operatorStack.pop();
+            continue;
+          }
+
           while (operatorStack.peek().priority() >= newOperator.priority() ) {
             // note that when we eval the expression 1 - 2 we will
             // push the 1 then the 2 and then do the subtraction operation
@@ -79,6 +95,9 @@ public class Evaluator {
     // that is, we should keep evaluating the operator stack until it is empty;
     // Suggestion: create a method that processes the operator stack until empty.
 
-    return 0;
+    while (!operatorStack.isEmpty()){
+      processer(operatorStack.pop());
+    }
+    return operandStack.pop().getValue();
   }
 }

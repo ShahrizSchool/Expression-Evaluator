@@ -21,12 +21,12 @@ public abstract class Operator {
      * @return priority of an Operator as an int
      */
 
-    private static final HashMap<String, Operator> operators = new HashMap<>();
+    private static HashMap<String, Operator> operators = new HashMap<>();
     static {
         operators.put("+", new AddOperator());
         operators.put("-", new SubtractOperator());
-        operators.put("*", new MultiplicationOperator());
-        operators.put("/", new DivisionOperator());
+        operators.put("*", new MultiplyOperator());
+        operators.put("/", new DivideOperator());
         operators.put("^", new PowerOperator());
         operators.put("(", new ParenthesesOpenOperator());
         operators.put(")", new ParenthesesCloseOperator());
@@ -51,7 +51,7 @@ public abstract class Operator {
      * @return reference to a Operator instance.
      */
     public static Operator getOperator(String token) {
-        return null;
+        return operators.get(token);
     }
 
     
@@ -62,7 +62,8 @@ public abstract class Operator {
      * Think about what happens if we add more operators.
      */
     public static boolean check(String token) {
-        return false;
+
+        return operators.containsKey(token);
     }
 }
 
