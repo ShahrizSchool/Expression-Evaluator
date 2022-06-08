@@ -5,10 +5,16 @@ package edu.csc413.calculator.evaluator;
  * in a valid mathematical expression.
  */
 public class Operand {
+    int operNumber;
     /**
      * construct operand from string token.
      */
     public Operand(String token) {
+        try{
+            operNumber = Integer.parseInt(token);
+        } catch (Exception ex){
+            System.out.println(ex + ": A String can't be changed to an int.");
+        }
 
     }
 
@@ -31,6 +37,11 @@ public class Operand {
      * operand.
      */
     public static boolean check(String token) {
-        return false;
+        try{
+            Integer.parseInt(token);
+        }catch(Exception ex){
+            return false;
+        }
+        return true;
     }
 }
