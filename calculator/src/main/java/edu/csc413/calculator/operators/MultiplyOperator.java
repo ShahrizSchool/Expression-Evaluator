@@ -5,6 +5,7 @@ import edu.csc413.calculator.evaluator.Operand;
 public class MultiplyOperator extends Operator {
     @Override
     public int priority() {
+
         return 2;
     }
 
