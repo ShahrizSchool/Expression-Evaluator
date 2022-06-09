@@ -25,6 +25,7 @@ public class EvaluatorUI extends JFrame implements ActionListener {
     private Button[] buttons = new Button[buttonText.length];
 
     public static void main(String argv[]) {
+
         new EvaluatorUI();
     }
 
@@ -72,6 +73,38 @@ public class EvaluatorUI extends JFrame implements ActionListener {
      */
     public void actionPerformed(ActionEvent actionEventObject) {
 
+        String buttonPressed = actionEventObject.getActionCommand();
+
+        if(buttonPressed.equals("=")){
+            try{
+                Evaluator eval = new Evaluator();
+                expressionTextField.setText(Integer.toString(eval.evaluateExpression(expressionTextField.getText())));
+                boolean equals = false;
+                equals = true;
+                System.out.println("answer of the expression when clicked equals");
+                //this will be the answer of the expression when the equal button is clicked.
+
+            } catch (Exception ex) {
+                expressionTextField.setText("0");
+                System.out.println("if no expression then set to 0, or invalid expression then error");
+                //if no expression then set to 0, or invalid expression then error
+            }
+        } else if (buttonPressed.equals("CE")){
+            //CE is there to delete one string or character, not delete the whole expression
+            if(expressionTextField.getText().length() == 1){
+                expressionTextField.setText(" ");
+            } else if (expressionTextField.getText().length() > 1) {
+                expressionTextField.setText(expressionTextField.getText().substring(0, expressionTextField.getText().length() -1));
+            }
+            System.out.println("this is to delete one int at a time instead of clearing the whole expression.");
+        } else if (buttonPressed.equals("C")){
+            //Clears everything
+            expressionTextField.setText(" ");
+            System.out.println("Text field was clear");
+        } else {
+            //the rest of the buttons that don't have a special case
+            expressionTextField.setText(expressionTextField.getText() + buttonPressed);
+        }
 
     }
 }

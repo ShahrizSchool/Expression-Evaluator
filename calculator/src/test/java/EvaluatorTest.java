@@ -43,9 +43,11 @@ public class EvaluatorTest {
         String testExpression = "1/2";
         int expectedResult = 0;
         int actualResult;
+        String results;
         try{
             actualResult = this.evaluator.evaluateExpression(testExpression);
             assertThat(actualResult, is(equalTo(expectedResult)));
+
         }catch (Exception ex){
             fail();
         }

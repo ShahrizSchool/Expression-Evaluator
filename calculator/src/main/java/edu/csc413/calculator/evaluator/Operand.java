@@ -11,9 +11,9 @@ public class Operand {
      */
     public Operand(String token) {
         try{
-            operandNumber = Integer.parseInt(token);
+            operandNumber = Integer.parseInt(token); //turn the string into a int
         } catch (Exception ex){
-            System.out.println("String can't be turned into an int");
+            System.out.println("String can't be turned into an int"); // couldn't turn string into int
         }
 
     }
@@ -30,7 +30,7 @@ public class Operand {
      */
     public int getValue() {
 
-        return operandNumber;
+        return operandNumber; //this will return the operand value
     }
 
     /**
@@ -39,7 +39,7 @@ public class Operand {
      */
     public static boolean check(String token) {
         try{
-            Integer.parseInt(token);
+            Integer.parseInt(token); //this is to check if the token is an int
         }catch(Exception ex){
             return false;
         }

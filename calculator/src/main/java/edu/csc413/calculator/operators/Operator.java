@@ -21,6 +21,7 @@ public abstract class Operator {
      * @return priority of an Operator as an int
      */
 
+    //the hashmap is initialized and then the basic operators are added to the map
     private static HashMap<String, Operator> operators = new HashMap<>();
     static {
         operators.put("+", new AddOperator());
@@ -62,8 +63,7 @@ public abstract class Operator {
      * Think about what happens if we add more operators.
      */
     public static boolean check(String token) {
-
-        return operators.containsKey(token);
+        return operators.containsKey(token); //this checks if the operator is equal to the token
     }
 }
 

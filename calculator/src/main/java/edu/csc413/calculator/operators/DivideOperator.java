@@ -5,11 +5,13 @@ import edu.csc413.calculator.evaluator.Operand;
 public class DivideOperator extends Operator {
     @Override
     public int priority() {
-        return 2;
+
+        return 2; //the divide operator has a prioirty of 2.
     }
 
     @Override
     public Operand execute(Operand operandOne, Operand operandTwo) {
         return new Operand(operandOne.getValue() / operandTwo.getValue());
+        // this returns the result of dividing both operands together.
     }
 }

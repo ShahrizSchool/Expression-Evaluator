@@ -36,6 +36,7 @@ public class AddOperatorTest {
         AddOperator addOperator =  new AddOperator();
         Operand result = new Operand(addOperator.execute(operandOne,operandTwo).getValue());
         assertThat(result.getValue(), is(equalTo(-5)));
+        System.out.println();
     }
 
     @Test
