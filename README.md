@@ -2,9 +2,9 @@
 
 ## Student Name  : Shahriz Malek
 
-## Student ID    : 920378989
+## Student ID    : ********
 
-## Student Email : smalek@mail.sfsu.edu
+## Student Email : ********
 
 ### Note failure to completely fill out this README.md could cause you to recieve a  0 for your project until correctly done
 
@@ -27,4 +27,4 @@ If for some reason it does not, you can add the jars in the following way:
 8. Now all jar needed to run unit test should be attached to your project.
 9. To run unit tests you can simply select any of the files in test/java. Also you may right-slick on the java folder inside test and select run all tests to run all given unit tests.
 # Expression-Evaluator
-# Expression-Evaluator
+
